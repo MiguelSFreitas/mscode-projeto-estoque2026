@@ -1,11 +1,12 @@
 <?php 
 
-namespace App\Controller\Usuario; 
+namespace App\Model\Usuario\Usuario; 
 
 use App\Controller\AbstractController;
 use App\Database\Query;
+use App\Model\Usuario\Usuario;
 
-class usuariomodel{
+class UsuarioModel{
     private Query $query;
 
     public function __construct(Query $query)
@@ -13,22 +14,26 @@ class usuariomodel{
         $this->query = $query;
     }
 
-    public function validarUsuario(string $usuario, string $senha): void
+    public function validarUsuario(string $email, string $senha): Usuario
     {
         $condicao = "email = '{email}'" ;
 
-        $usuario = $this->query->select('usuarios', $condicao );
+        $resultado = $this->query->select('usuarios', $condicao );
 
-        if (!$usuario) {
+        if (!$resultado) {
             throw new \Exception("Usuário não encontrado.");
         }
 
-        if (!password_verify($senha, $usuario[0]['senha'])) {
+        if (!password_verify($senha, $resultado[0]['senha'])) {
             throw new \Exception("Senha incorreta.");
         }
         
-    }
+    
 
+        $usuario = new Usuario($resultado[0]['id'], $resultado[0]['nome'], $resultado[0]['email']);
+
+        return $usuario;
+    }
 }
 
 ?>
