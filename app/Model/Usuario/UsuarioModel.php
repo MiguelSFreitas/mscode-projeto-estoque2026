@@ -17,10 +17,18 @@ class usuariomodel{
     {
         $condicao = "email = '{email}'" ;
 
-
         $usuario = $this->query->select('usuarios', $condicao );
+
+        if (!$usuario) {
+            throw new \Exception("Usuário não encontrado.");
+        }
+
+        if (!password_verify($senha, $usuario[0]['senha'])) {
+            throw new \Exception("Senha incorreta.");
+        }
         
     }
+
 }
 
 ?>
