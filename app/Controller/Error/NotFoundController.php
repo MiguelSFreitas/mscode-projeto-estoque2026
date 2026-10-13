@@ -13,3 +13,4 @@ class NotFoundController extends AbstractController
         ]);
     }
 }
+SQL

@@ -1,4 +1,4 @@
--- Create categoria table
+ -- Create categoria table
 CREATE TABLE categoria (
   id INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(50) NOT NULL
