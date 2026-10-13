@@ -13,7 +13,14 @@ class usuariomodel{
         $this->query = $query;
     }
 
-    public function va
+    public function validarUsuario(string $usuario, string $senha): void
+    {
+        $condicao = "email = '{email}'" ;
+
+
+        $usuario = $this->query->select('usuarios', $condicao );
+        
+    }
 }
 
 ?>

@@ -3,13 +3,14 @@
 namespace App\Controller\Login;
 
 use App\Controller\AbstractController;
+use App\Model\Login\UsuarioModel;
 
 class LoginController extends AbstractController {
-    private LoginModel $loginModel;
+    private UsuarioModel $model;
 
-    public function __construct(LoginModel $loginModel)
+    public function __construct()
     {
-        $this->loginModel = $loginModel;
+        $this->model = new $UsuarioModel();
     }
 
     public function index(array $requestData): void 
