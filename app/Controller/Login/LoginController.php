@@ -3,7 +3,7 @@
 namespace App\Controller\Login;
 
 use App\Controller\AbstractController;
-use App\Model\Usuario\Usuario\UsuarioModel;
+use App\Model\Usuario\UsuarioModel;
 
 
 class LoginController extends AbstractController 
@@ -28,7 +28,7 @@ class LoginController extends AbstractController
 
             $_SESSION['usuario'] = $usuario;
 
-            $this->render('home/home.php',);
+            $this->redirect('/home');
 
         } catch (\Exception $e) {
             $this->redirectToError($e->getMessage());

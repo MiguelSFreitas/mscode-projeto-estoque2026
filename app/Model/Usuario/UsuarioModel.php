@@ -1,25 +1,25 @@
 <?php 
 
-namespace App\Model\Usuario\Usuario; 
+namespace App\Model\Usuario;
 
-use App\Controller\AbstractController;
 use App\Database\Query;
 use App\Model\Usuario\Usuario;
 
 class UsuarioModel{
     private Query $query;
 
-    public function __construct(Query $query)
+    
+    public function __construct()
     {
-        $this->query = $query;
+        $this->query = new Query();
     }
 
     public function validarUsuario(string $email, string $senha): Usuario
     {
-        $condicao = "email = '{email}'" ;
+        $condicao = " email = '{$email}'" ;
 
-        $resultado = $this->query->select('usuarios', $condicao );
-
+        $resultado = $this->query->select('usuario', $condicao );
+        
         if (!$resultado) {
             throw new \Exception("Usuário não encontrado.");
         }
