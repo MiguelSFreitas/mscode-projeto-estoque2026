@@ -10,6 +10,7 @@ $router = [
         '/' => AppController::class,
         '/error' => ErrorController::class,
         '/login' => LoginController::class,
+        '/home' => HomeController::class
     ],
     'default' => NotFoundController::class
 ];
