@@ -17,8 +17,8 @@ $router = [
         '/login' => LoginController::class,
         '/home' => HomeController::class,
         '/categoria' => CategoriaController::class,
+        '/nova_categoria' => NovaCategoriaController::class,
         '/cadastrar_categoria' => CadastrarCategoriaController::class,
-        '/nova_categoria' => NovaCategoriaController::class
     ],
 
     'default' => NotFoundController::class
