@@ -17,6 +17,17 @@ class CadastrarCategoriaController extends AbstractController
 
    public function index(array $requestData): void
    {
+    try {
+        if (empty($requestData['nome'])) {
+            throw new \Exception('O campo "Nome" é obrigatório.');
+        }
+
+        $this->model->cadastrarCategoria($requestData['nome']);
+
+        $this->redirect('/categoria');
+    } catch (\Exception $e) {
+        $this->redirectToError($e->getMessage());
+    }
     
    }
 
