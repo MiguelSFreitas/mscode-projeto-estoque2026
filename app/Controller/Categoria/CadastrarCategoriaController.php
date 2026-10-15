@@ -34,6 +34,4 @@ class CadastrarCategoriaController extends AbstractController
 
 }
 
-
-
 ?>
