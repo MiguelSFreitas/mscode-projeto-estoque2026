@@ -23,7 +23,7 @@
           </a>
 
           <ul class="nav nav-pills d-flex align-items-center">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Início</a></li>
+            <li class="nav-item"><a href="/home" class="nav-link active" aria-current="page">Início</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -54,7 +54,7 @@
       <div class="mb-4 d-flex flex-row justify-content-between">
         <h1>Categorias</h1>
         <div>
-          <a href="nova_categoria.html" class="btn btn-primary"><i class="bi bi-plus"></i>Nova categoria</a>
+          <a href="/nova_categoria" class="btn btn-primary"><i class="bi bi-plus"></i>Nova categoria</a>
         </div>
       </div>
 

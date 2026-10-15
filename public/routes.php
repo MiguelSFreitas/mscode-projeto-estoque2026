@@ -1,7 +1,9 @@
 <?php
 
 use App\Controller\AppController;
+use App\Controller\Categoria\CadastrarCategoriaController;
 use App\Controller\Categoria\CategoriaController;
+use App\Controller\Categoria\NovaCategoriaController;
 use App\Controller\Error\ErrorController;
 use App\Controller\Error\NotFoundController;
 use App\Controller\Home\HomeController;
@@ -15,6 +17,8 @@ $router = [
         '/login' => LoginController::class,
         '/home' => HomeController::class,
         '/categoria' => CategoriaController::class,
+        '/cadastrar_categoria' => CadastrarCategoriaController::class,
+        '/nova_categoria' => NovaCategoriaController::class
     ],
 
     'default' => NotFoundController::class
