@@ -25,8 +25,11 @@ class LoginController extends AbstractController
             }
 
             $usuario = $this->model->validarUsuario($requestData['email'], $requestData['password']);
-          
-            
+
+            $_SESSION['usuario'] = $usuario;
+
+            $this->render('dashboard/dashboard.php',);
+
         } catch (\Exception $e) {
             $this->redirectToError($e->getMessage());
         }
