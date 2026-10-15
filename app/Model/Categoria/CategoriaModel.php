@@ -23,7 +23,7 @@ class CategoriaModel
         $resultado = $this->query->insert('categoria', $dados);
 
         if (!$resultado) {
-            throw new \Exception('Erro ao cadastrar categoria.' . $nome);
+            throw new \Exception('Erro ao cadastrar categoria.' . $nome, 500);
         }
 
     }
