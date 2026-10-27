@@ -19,6 +19,7 @@ $router = [
         '/categoria' => CategoriaController::class,
         '/nova_categoria' => NovaCategoriaController::class,
         '/cadastrar_categoria' => CadastrarCategoriaController::class,
+        '/produto' => ProdutoController::class,
     ],
 
     'default' => NotFoundController::class
