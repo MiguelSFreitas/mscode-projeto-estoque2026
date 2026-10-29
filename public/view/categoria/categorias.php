@@ -18,12 +18,12 @@
       <div class="container">
         <header class="d-flex flex-wrap justify-content-center align-items-center py-3">
           <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <img class="me-2" src="/public/assets/images/logotipo.svg" width="53">
-            <span class="fs-4">MSCode - Estoque</span>
+            <img class="me-2" src="/images/logotipo.svg" width="53">
+            <span class="fs-4">MS Code - Estoque</span>
           </a>
 
           <ul class="nav nav-pills d-flex align-items-center">
-            <li class="nav-item"><a href="/home" class="nav-link active" aria-current="page">Início</a></li>
+            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Início</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -41,7 +41,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/produtos.html">Estoque</a></li>
-                <li><a class="dropdown-item" href="categorias.html">Categorias</a></li>
+                <li><a class="dropdown-item" href="/categoria">Categorias</a></li>
               </ul>
             </li>
             <li class="nav-item"><a href="#" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
@@ -67,14 +67,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Informática</td>
-            <td class="col-1 text-align-right">
-              <button class="btn btn-secondary btn-sm" title="Editar"><i class="bi bi-pencil"></i></button>
-              <button class="btn btn-danger btn-sm" title="Excluir"><i class="bi bi-trash"></i></button>
-            </td>
-          </tr>
+          <?php if (empty($data['categorias'])): ?>
+            <tr>
+              <td colspan="3" class="text-center">Nenhuma categoria cadastrada.</td>
+            </tr>
+          <?php else: ?>
+            <?php foreach ($data['categorias'] as $categoria): ?>
+              <tr>
+                <th scope="row"><?php echo (int) $categoria['id']; ?></th>
+                <td><?php echo htmlspecialchars($categoria['nome']); ?></td>
+                <td class="col-1 text-align-right">
+                  <a href="/editar_categoria?id=<?php echo (int) $categoria['id']; ?>"
+                    class="btn btn-secondary btn-sm" title="Editar"><i class="bi bi-pencil"></i></a>
+                  <form action="/excluir_categoria" method="post" class="d-inline">
+                    <input type="hidden" name="id" value="<?php echo (int) $categoria['id']; ?>">
+                    <button type="submit" class="btn btn-danger btn-sm" title="Excluir"><i
+                        class="bi bi-trash"></i></button>
+                  </form>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          <?php endif; ?>
         </tbody>
 
       </table>

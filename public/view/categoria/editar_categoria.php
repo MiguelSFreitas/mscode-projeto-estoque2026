@@ -38,8 +38,8 @@
                 Produtos
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item active" href="produtos.html">Estoque</a></li>
-                <li><a class="dropdown-item" href="categorias.html">Categorias</a></li>
+                <li><a class="dropdown-item" href="/produtos">Estoque</a></li>
+                <li><a class="dropdown-item active" href="/categoria">Categorias</a></li>
               </ul>
             </li>
             <li class="nav-item"><a href="#" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
@@ -49,43 +49,27 @@
     </div>
 
     <div class="container py-5">
-      <div class="mb-4 d-flex flex-row justify-content-between">
-        <h1>Produtos</h1>
-        <div>
-          <a href="novo_produto.html" class="btn btn-primary"><i class="bi bi-plus"></i>Novo produto</a>
-        </div>
+      <div class="mb-4">
+        <h1>Editar categoria</h1>
       </div>
 
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">Categoria Id</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Qtd. Disponível</th>
-            <th scope="col-2 text-align-right">Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>nome</td>
-            <td>descrição</td>
-            <td>categoria id</td>
-            <td>R$ 398,00</td>
-            <td>2</td>
-            <td class="col-2 d-flex gap-1 w-auto flex-wrap">
-              <button class="btn btn-primary btn-sm" title="Adicionar 1 (incrementar quantidade)"><i class="bi bi-plus"></i></button>
-              <button class="btn btn-secondary btn-sm" title="Editar produto"><i class="bi bi-pencil"></i></button>
-              <button class="btn btn-danger btn-sm" title="Excluir"><i class="bi bi-trash"></i></button>
-              <button class="btn btn-primary btn-sm" title="Vender produto (decrementar 1)">Vender</button>
-            </td>
-          </tr>
-        </tbody>
-
-      </table>
+      <div class="w-50 mt-2">
+        <form action="/atualizar_categoria" method="post">
+          <div class="mb-3">
+            <label for="novo_id" class="form-label">Id: </label>
+            <input type="number" class="form-control" id="novo_id" name="novo_id"
+              value="<?php echo (int) $data['categoria']['id']; ?>">
+            <input type="hidden" name="id" value="<?php echo (int) $data['categoria']['id']; ?>">
+          </div>
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome"
+              value="<?php echo htmlspecialchars($data['categoria']['nome']); ?>">
+          </div>
+          <a href="/categoria" class="btn btn-outline-secondary">Cancelar</a>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+      </div>
     </div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

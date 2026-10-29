@@ -8,7 +8,7 @@ class Query
 
     public function __construct()
     {
-        $database = new Database(
+         $database = new Database(
             host: '127.0.0.1',
             database: 'mscode_estoque',
             username: 'MiguelSFreitas',

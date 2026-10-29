@@ -17,7 +17,7 @@
   <main class="form-signin w-100 m-auto">
     <form action="/login" method="POST">
       <div class="d-flex align-items-center mb-4">
-        <img class="p-0" src="/assets/images/logotipo.svg" width="72" height="57">
+        <img class="p-0" src="assets/images/logotipo.svg" width="72" height="57">
 
         <h1 class="h3 fw-normal my-0 ms-2">Sistema Estoque</h1>
       </div>
@@ -32,7 +32,7 @@
       </div>
 
       <button class="btn btn-primary w-100 py-2" type="submit">Acessar</button>
-      <p class="mt-5 mb-3 text-body-secondary text-center">&copy; MSCode 2026</p>
+      <p class="mt-5 mb-3 text-body-secondary text-center">&copy; MS Code 2025</p>
     </form>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

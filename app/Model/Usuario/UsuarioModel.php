@@ -1,36 +1,35 @@
-<?php 
+<?php
 
 namespace App\Model\Usuario;
 
 use App\Database\Query;
-use App\Model\Usuario\Usuario;
 
-class UsuarioModel{
+class UsuarioModel
+{
     private Query $query;
 
-    
     public function __construct()
     {
         $this->query = new Query();
     }
 
-    public function validarUsuario(string $email, string $senha): Usuario
+    public function validarUsuario(string $email, string $password): Usuario
     {
-        $condicao = " email = '{$email}'" ;
+        $condicao = " email = '{$email}'";
 
-        $resultado = $this->query->select('usuario', $condicao );
-        
+        $resultado = $this->query->select('usuario', $condicao);
+
+
         if (!$resultado) {
-            throw new \Exception("Usuário não encontrado.");
+            throw new \Exception("E-mail inválido!");
         }
 
-        if (!password_verify($senha, $resultado[0]['senha'])) {
-            throw new \Exception("Senha incorreta.");
+        if (!password_verify($password, $resultado[0]['senha'])) {
+            throw new \Exception('Senha inválida!');
+            
         }
-        
-    
 
-        $usuario = new Usuario($resultado[0]['id'], $resultado[0]['nome'], $resultado[0]['email']);
+        $usuario = new Usuario($resultado[0]['id'], $resultado[0]['nome']);
 
         return $usuario;
     }

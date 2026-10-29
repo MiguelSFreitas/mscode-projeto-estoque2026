@@ -18,12 +18,12 @@
       <div class="container">
         <header class="d-flex flex-wrap justify-content-center align-items-center py-3">
           <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <img class="me-2" src="/public/assets/images/logotipo.svg" width="53">
-            <span class="fs-4">MSCode - Estoque</span>
+            <img class="me-2" src="/images/logotipo.svg" width="53">
+            <span class="fs-4">MS Code - Estoque</span>
           </a>
 
           <ul class="nav nav-pills d-flex align-items-center">
-            <li class="nav-item"><a href="/home" class="nav-link active" aria-current="page">Início</a></li>
+            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Início</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Vendas
@@ -54,10 +54,10 @@
       </div>
 
       <div class="w-50 mt-2">
-        <form action="/cadastrar_categoria" method="POST">
+        <form action="/cadastrar_categoria" method="post">
           <div class="mb-3">
             <label for="id" class="form-label">Id: </label>
-            <input type="email" class="form-control" id="id" disabled value="0">
+            <input type="number" class="form-control" id="id" name="id">
           </div>
           <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
